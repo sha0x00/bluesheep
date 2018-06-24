@@ -39,9 +39,23 @@ make install (optional)
 sudo hciconfigure hci0
 ```
 
-3. Run QEMU with the following:
+3. Find the vendor and product ID of your bluetooth device:
 ```
-qemu-system-x86_64 -s -m 2048 -usb -device usb-host,vendorid=0x8087,productid=0x07dc -bt hci,host:hci0 -enable-kvm -drive if=virtio,file=bluesheep.qcow2,cache=none
+lsusb
+```
+My Bluetooth device is a built in module of my laptop:
+```
+Bus 001 Device 003: ID 8087:07dc Intel Corp.
+```
+The VendorID is 8087 and ProductID is 07dc.
+If you can't determine what your Bluetooth device is, running lsusb in verbose should tell you
+```
+lsusb -v
+```
+
+3. Run QEMU with the following. :
+```
+sudo qemu-system-x86_64 -s -m 2048 -usb -device usb-host,vendorid=0x8087,productid=0x07dc -bt hci,host:hci0 -enable-kvm -drive if=virtio,file=bluesheep.qcow2,cache=none
 ```
 
 # Debug Bluetooth 
