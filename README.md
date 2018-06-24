@@ -28,17 +28,17 @@ Getting Bluetooth running in QEMU is a little tricky. Remember that every Blueto
 1. Build Bluez. A lot of times the tools are disabled by default or the distro doesn't provide all of the Bluetooth tools: http://www.bluez.org/development/git/
 
 When building, make sure you enable the tools:
-'''
+```
 ./configure --enable-testing --enable-experimental --enable-deprecated
 
 make
 
 make install (optional)
-'''
+```
 
 2. Make sure Bluetooth dongle is up and running. Assuming you only have one BT device
-'''
+```
 sudo hciconfigure hci0
-'''
+```
 
 
