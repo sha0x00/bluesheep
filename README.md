@@ -35,7 +35,6 @@ make install (optional)
 ```
 
 2. Make sure Bluetooth dongle is up and running. Assuming you only have one BT device
-
 ```
 sudo hciconfigure hci0
 ```
@@ -50,6 +49,9 @@ qemu-system-x86_64 -s -m 2048 -usb -device usb-host,vendorid=0x8087,productid=0x
 We're going to be working with the Bluetooth kernel module. Instead of building the whole kernel, we can build just the kernel module.
 
 https://askubuntu.com/questions/515407/how-recipe-to-build-only-one-kernel-module
+```
+sudo hciconfigure hci0
+```
 
 1. Ensure you have the "bluetooth.o" object file in the source under "/net/bluetooth/" in the linux source you used.
 2. If you look at one of the opts during the execution of qemu, you'll see the "-s" opt. This is a shorthand for "-gdb tcp::1234", which essentially creates a gdbserver on TCP port 1234
