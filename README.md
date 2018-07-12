@@ -92,9 +92,8 @@ info functions
 
 Hardware Reqs:
 1. BlueZ Driver support.
-2. Storage
-    Log format:
-        - Event Timestamp
+2. Storage (Log Format:)
+   	- Event Timestamp
     	- BT protocol type + version
     	- BT Address
     	- Event GPS coords*
@@ -110,7 +109,8 @@ Hardware Reqs:
 
 TODO:
 1. Define supported protocol scope for Defcon 26/BlueSheep v1 (BT Classic/BLE Versions)
-2. Finalize hardware BoM by 07/13/18.
-3. Identify best practices in IPC from kernel space.
+2. Event log size estimation.
+3. Finalize hardware BoM by 07/13/18.
+4. Identify best practices in IPC from kernel space.
     * BlueZ -> user_land_logger (proc_fs/netlink_soc).
-4. Identify options for hyper-performant in memory message queuing.
+5. Identify options for hyper-performant in memory message queuing.
