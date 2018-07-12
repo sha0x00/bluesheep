@@ -88,3 +88,29 @@ add-symbol-file $linux_src/net/bluetooth/bluetooth.o 0xaddress_loaded_kernel
 info functions
 ````
 
+# Meeting Notes 07/08/18:
+
+Hardware Reqs:
+1. BlueZ Driver support.
+2. Storage
+    Log format:
+        - Event Timestamp
+    	- BT protocol type + version
+    	- BT Address
+    	- Event GPS coords*
+    	- HCI capabilities**
+3. Power
+	- 16 hours run time, based on radios + cpu drain.
+	- sd write frequency optimization.
+	- gps poll frequency optimization.
+
+//*  Stretch Goal 1: GPS integration.
+//** Stretch Goal 2: HCI role switch + HCI capabilities query against adversary.
+
+
+TODO:
+1. Define supported protocol scope for Defcon 26/BlueSheep v1 (BT Classic/BLE Versions)
+2. Finalize hardware BoM by 07/13/18.
+3. Identify best practices in IPC from kernel space.
+    * BlueZ -> user_land_logger (proc_fs/netlink_soc).
+4. Identify options for hyper-performant in memory message queuing.
