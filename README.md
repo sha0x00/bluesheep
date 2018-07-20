@@ -104,6 +104,7 @@ Hardware Reqs:
 	- gps poll frequency optimization.
 
 //*  Stretch Goal 1: GPS integration.
+
 //** Stretch Goal 2: HCI role switch + HCI capabilities query against adversary.
 
 
@@ -129,12 +130,14 @@ Hardware Reqs:
     	- HCI capabilities**
 	- GATT polling***
 3. Power
-	- 16 hours run time, based on radio(s) + cpu drain.
+	- 12 hours run time, based on radio(s) + cpu drain.
 	- sd write frequency optimization.
-	- gps poll frequency optimization.
+	- wifi poll frequency optimization.
 
 //*  Stretch Goal 1: WiFi integration.
+
 //** Stretch Goal 2: HCI master role connect + HCI capabilities query against adversary nodes.
+
 //** Stratch Goal 3: BT Classic/BLE connect + GATT enumeration.
 
 TODO:
