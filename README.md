@@ -117,11 +117,12 @@ Hardware Reqs:
     	- Event GPS coords*
     	- HCI capabilities**
 3. Power
-	- 16 hours run time, based on radios + cpu drain.
+	- 16 hours run time, based on radio(s) + cpu drain.
 	- sd write frequency optimization.
 	- gps poll frequency optimization.
 
 //*  Stretch Goal 1: GPS integration.
+
 //** Stretch Goal 2: HCI role switch + HCI capabilities query against adversary.
 
 
@@ -132,3 +133,44 @@ TODO:
 4. Identify best practices in IPC from kernel space.
     * BlueZ -> user_land_logger (proc_fs/netlink_soc).
 5. Identify options for hyper-performant in memory message queuing.
+
+# TODO: Meeting Notes 07/17/18
+
+# Update 07/20/18
+
+Hardware Reqs:
+1. BlueZ Driver support.
+2. Storage (Log Format:)
+   	- Event Timestamp
+    	- BT protocol type + version
+    	- BT Address
+    	- WiFi SSIDs & sig stregth floats*
+    	- HCI capabilities**
+	- GATT polling***
+3. Power
+	- 12 hours run time, based on radio(s) + cpu drain.
+	- sd write frequency optimization.
+	- wifi poll frequency optimization.
+
+//*  Stretch Goal 1: WiFi integration.
+
+//** Stretch Goal 2: HCI master role connect + HCI capabilities query against adversary nodes.
+
+//** Stratch Goal 3: BT Classic/BLE connect + GATT enumeration.
+
+TODO:
+1. Define supported protocol scope for Defcon 26/BlueSheep v1 (BT Classic/BLE Versions)
+2. Finalize hardware enclosure design and production.
+3. Complete 10 unit assembly by 07/27/18.
+4. PoC WiFi ssid & sig strength query on HCI event extension.
+5. PoC logger implementation, BlueZ -> user_land_logger (proc_fs/netlink_soc).
+6. Event log size estimation.
+7. Investigate feasibility of GATT enumeration stretch goal for v1 by 07/27/18.
+
+Hardware BoM:
+https://www.amazon.com/CanaKit-Raspberry-Wireless-Official-Supply/dp/B071L2ZQZX
+https://www.adafruit.com/product/2465
+https://www.amazon.com/gp/product/B01KJ07A2Q
+https://www.amazon.com/gp/product/B073JYVKNX
+
+**DO NOT BUY** 10 total units have been ordered for the group, if demand exceeds that we can try to scrape a few more together by DEFCON 26.
