@@ -1,0 +1,20 @@
+Netlink socket on kernel driver
+ - Create a LKM that creates a netlink socket
+ - Create a netlink socket in the Bluetooth LKM
+
+GeoLocation MetaData
+ - GPS
+ - AccessPoint collection
+
+Uerspace application
+ - For sake of memory consumption, use C, maybe ulibc
+ - Communicate with LKM for initial development of application
+ - Matt - Work on mapping code, separate app - WiFi
+ - Erin - Work on socket interaction of netlink socket
+   or on-demand.
+ - Somebody - Counter attack. Perform hci commands on BADDR that attempted to
+   connect to device
+   - BT Device name
+   - Services/Profiles
+ - Somebody - MAC (first 3 bytes) addresses of 10 most popular phones
+ - Somebody - Default BT Name for mac addresses being spoofed
