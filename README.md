@@ -1,30 +1,41 @@
 # bluesheep
-Quick run down of the environment to work with:
 
+# Environment
 Debian 9
 Kernel 4.9.0
-Bluetooth modules in /net/bluetooth/
+Kernel code: /net/bluetooth/
 
 Pi Zero + BT mod + GPS mod + PW
-L1: HCI event log.
-L2: HCI event + GPS coord log.
-L3: HCI event + GPS coord log + M/S switch + HCI service poll of attack node."
+Level 1: HCI event log.
+Level 2: HCI event + GPS coord log.
+Level 3: HCI event + GPS coord log + M/S switch + HCI service poll of attack node."
 
-Level 1 Goals: 
+Level 1 Goals (Complete): 
 
 1. Find where connection requests are being handle
     a. Build the Bluetooth module 
     b. Recommend running the same distro & kernel in QEMU.
     c. Debug Kernel modules with gdb or other tracer
 2. Log the event with the requesters MAC
-3. Reject the HCI connection
+3. Reject the HCI connection 
 
-# Enable Bluetooth Dongle
 
-Getting Bluetooth running in QEMU is a little tricky. Remember that every Bluetooth dongle, internal/external is considered a USB device.
+# Tutorial
 
-1. Build Bluez. A lot of times the tools are disabled by default or the distro doesn't provide all of the Bluetooth tools: http://www.bluez.org/download/
+## HCI Tools
 
+There are a lot of great HCI tools in the BlueZ software and understanding what
+the tools are doing and displaying can be a bit difficult to follow. The
+following will get you setup with some basic Bluetooth commands.
+
+### Building BlueZ
+
+You can download the package or clone a copy from BlueZ's Git repo. I like to
+download the package:
+
+http://www.bluez.org/download/
+
+A lot of times the tools are disabled by default or the distro doesn't provide all of the Bluetooth tools
 When building, make sure you enable the tools:
 ```
 ./configure --enable-testing --enable-experimental --enable-deprecated
@@ -33,6 +44,13 @@ make
 
 make install (optional)
 ```
+
+
+# Enable Bluetooth Dongle
+
+Getting Bluetooth running in QEMU is a little tricky. Remember that every Bluetooth dongle, internal/external is considered a USB device.
+
+
 
 2. Make sure Bluetooth dongle is up and running. Assuming you only have one BT device
 ```
