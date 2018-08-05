@@ -118,17 +118,21 @@ TODO:
 
 # iwscan
  To build:
+ ```
  $ make
-
+```
  To use:
+```
  $ sudo ./iwscan <IFACE>
-	
+``` 
  Currently prints essid/bssid/strength of top 32 (or less) APs in range of the wifi card.
  TODO:
  1. Sort of ipc
  2. Crosscompile
  3. uClicb-ng testing
- 4. Clean up the nasty technical debt
+ 4. Tweak output? 
+ 4. Add option for minimized input, variable timing
+ ?. Clean up the nasty technical debt
 
 # TODO: Meeting Notes 07/17/18
 
