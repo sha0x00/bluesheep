@@ -116,8 +116,13 @@ TODO:
     * BlueZ -> user_land_logger (proc_fs/netlink_soc).
 5. Identify options for hyper-performant in memory message queuing.
 
-# Building iwscan
+# iwscan
+ To build:
  $ make
+
+ To use:
+ $ sudo ./iwscan <IFACE>
+	
  Currently prints essid/bssid/strength of top 32 (or less) APs in range of the wifi card.
  TODO:
  1. Sort of ipc
