@@ -116,6 +116,15 @@ TODO:
     * BlueZ -> user_land_logger (proc_fs/netlink_soc).
 5. Identify options for hyper-performant in memory message queuing.
 
+# Building iwscan
+ $ make
+ Currently prints essid/bssid/strength of top 32 (or less) APs in range of the wifi card.
+ TODO:
+ 1. Sort of ipc
+ 2. Crosscompile
+ 3. uClicb-ng testing
+ 4. Clean up the nasty technical debt
+
 # TODO: Meeting Notes 07/17/18
 
 # Update 07/20/18
