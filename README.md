@@ -89,6 +89,12 @@ info functions
 ````
 # iwscan
  To build:
+
+Replace line 13 in the Makefile with the location of your target platform compiler
+```
+13 CC = /home/saga/pi/staging/.build/arm-unknown-linux-gnueabi/buildtools/bin/arm-unknown-linux-gnueabi-gcc
+```
+then
 ```
 $ make
 ```
@@ -100,7 +106,7 @@ Currently prints essid/bssid/strength of top 32 (or less) APs in range of the wi
 
  TODO:
  1. Sort out ipc
- 2. Crosscompile
+~~ 2. Crosscompile~~
  3. uClicb-ng testing
  4. Tweak output? 
  4. Add option for minimized input, variable timing
