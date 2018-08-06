@@ -105,7 +105,7 @@ $ sudo ./iwscan <IFACE>
 Currently prints essid/bssid/strength of top 32 (or less) APs in range of the wifi card.
 
  TODO:
- 1. Sort out ipc
+ 1. ~~Sort out ipc~~
  2. ~~Crosscompile~~
  3. uClicb-ng testing
  4. Tweak output? 
