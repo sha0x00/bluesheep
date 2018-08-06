@@ -106,7 +106,7 @@ Currently prints essid/bssid/strength of top 32 (or less) APs in range of the wi
 
  TODO:
  1. Sort out ipc
-~~ 2. Crosscompile~~
+ 2. ~~Crosscompile~~
  3. uClicb-ng testing
  4. Tweak output? 
  4. Add option for minimized input, variable timing
