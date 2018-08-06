@@ -598,13 +598,22 @@ perform_scan(int		skfd,
       trimmed_results.num_of_ap = results.num_of_ap;
 
       printf("%d RESULTS\n", results.num_of_ap);
+      char *iw2log = "/tmp/iw2log";
+      mkfifo(iw2log, 0666);
+      int fd;
       for (int i = 0; i < results.num_of_ap; i++) {
 	  trimmed_results.aps[i] = results.aps[i];
           printf("==== %d\n%s\n", i, trimmed_results.aps[i].bssid);
           printf("%s\n", trimmed_results.aps[i].essid);
           printf("%d\n", trimmed_results.aps[i].strength);
-       }
-
+      }
+      fd = open(iw2log, O_WRONLY);
+      printf("writing to FIFO\n");
+      write(fd, &trimmed_results, sizeof(trimmed_results));
+      write(fd, trimmed_results.aps, sizeof(struct iw_ap)*trimmed_results.num_of_ap + 1);
+      printf("done writing, closing FIFO\n");
+      close(fd);
+      printf("closed FIFO\n");
   }
   else
     printf("%-8.16s  No scan results\n\n", ifname);
