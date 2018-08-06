@@ -8,9 +8,10 @@ ifndef PREFIX
   PREFIX = /usr/local
 endif
 
-## Compiler to use (modify this for cross compile).
-CC = gcc
-## Other tools you need to modify for cross compile (static lib only).
+#CC = gcc
+## Change below to the location of your arm compiler
+CC = /home/saga/pi/staging/.build/arm-unknown-linux-gnueabi/buildtools/bin/arm-unknown-linux-gnueabi-gcc
+
 AR = ar
 RANLIB = ranlib
 
