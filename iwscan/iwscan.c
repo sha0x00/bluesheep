@@ -17,7 +17,7 @@
 struct iw_ap
 {
   char			essid[4*IW_ESSID_MAX_SIZE+1];
-  char 			bssid[12];
+  char 			bssid[13];
   int8_t		strength;  
 };
 
@@ -81,6 +81,11 @@ static const char *	iw_ie_key_mgmt_name[] = {
 
 void iws_ether_ntop(const struct ether_addr * eth, char* ethaddr)
 {
+
+//  printf("%02X%02X%02X%02X%02X%02X\n",
+//          eth->ether_addr_octet[0], eth->ether_addr_octet[1],
+//          eth->ether_addr_octet[2], eth->ether_addr_octet[3],
+//          eth->ether_addr_octet[4], eth->ether_addr_octet[5]);
   sprintf(ethaddr, "%02X%02X%02X%02X%02X%02X",
           eth->ether_addr_octet[0], eth->ether_addr_octet[1],
           eth->ether_addr_octet[2], eth->ether_addr_octet[3],
@@ -353,8 +358,9 @@ build_scanning_token(struct stream_descr *	stream,	/* Stream of events */
       results.num_of_ap = results.num_of_ap + 1;
       char *bssid = malloc(12*sizeof(char));
       iw_sether_ntop(&event->u.ap_addr, bssid);
-      strncpy(ap.bssid, bssid, sizeof(bssid));
-      strncpy(ap.essid, "", sizeof(""));
+      strncpy(ap.essid, "", sizeof(char));
+      // Consciously using strcpy to append the trailing null
+      strcpy(ap.bssid, bssid);
       ap.strength = 0;
       results.aps[results.num_of_ap - 1] = ap;
       *inresults = results;
