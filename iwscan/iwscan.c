@@ -358,6 +358,7 @@ build_scanning_token(struct stream_descr *	stream,	/* Stream of events */
       ap.strength = 0;
       results.aps[results.num_of_ap - 1] = ap;
       *inresults = results;
+      free(bssid);
       break;
      case SIOCGIWESSID:
       {	
@@ -382,8 +383,9 @@ build_scanning_token(struct stream_descr *	stream,	/* Stream of events */
       }
       break;
     case IWEVQUAL:
-       // printf("qual.qual %d\nqual.level %d\nqual.noise %d\n", event->u.qual.qual, event->u.qual.level, event->u.qual.noise);
-	ap.strength = event->u.qual.qual;
+       // printf("qual.qual %d\nqual.le vel%d\nqual.noise %d\n", event->u.qual.qual, event->u.qual.level, event->u.qual.noise);
+//	ap.strength = event->u.qual.qual;
+	ap.strength = event->u.qual.level;
 	results.aps[results.num_of_ap - 1] = ap;
 	*inresults = results;
       break;
@@ -603,9 +605,7 @@ perform_scan(int		skfd,
       int fd;
       for (int i = 0; i < results.num_of_ap; i++) {
 	  trimmed_results.aps[i] = results.aps[i];
-          printf("==== %d\n%s\n", i, trimmed_results.aps[i].bssid);
-          printf("%s\n", trimmed_results.aps[i].essid);
-          printf("%d\n", trimmed_results.aps[i].strength);
+          printf("%d %s %s %d\n", i, trimmed_results.aps[i].bssid, trimmed_results.aps[i].essid, trimmed_results.aps[i].strength);
       }
       fd = open(iw2log, O_WRONLY);
       printf("writing to FIFO\n");
