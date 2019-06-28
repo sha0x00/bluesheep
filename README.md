@@ -1,6 +1,8 @@
 # bluesheep
 Quick run down of the environment to work with:
 
+[Meeting Notes](Meetings/Meeting Notes.md) 
+
 Debian 9
 Kernel 4.9.0
 Bluetooth modules in /net/bluetooth/
